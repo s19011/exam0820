@@ -13,13 +13,13 @@ def ButtonClick():
     #正しい入力か判定する
     input_ok = False
     if len(b) != 4:
-        tkmsg.showerror("エラー", "4桁の数字を入れてね")
+        tkmsg.showerror("エラー", "4桁の数字を入力")
     else:
         input_ok = True
         for i in range(4):
             if(b[i]<"0") or (b[i]>"9"):
                     input_ok = False
-                    tkmsg.showerror("エラー", "数字じゃないよ")
+                    tkmsg.showerror("エラー", "数字じゃない")
                     break
 
     if input_ok == True:
