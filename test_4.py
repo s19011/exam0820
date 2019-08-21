@@ -4,7 +4,7 @@ import tkinter as tk
 import tkinter.messagebox as tkmsg
 
 
-#ボタンをクリックしたとき
+#ボタンをクリック
 def ButtonClick():
 
     #入力欄の内容を取得
@@ -22,15 +22,12 @@ def ButtonClick():
                     tkmsg.showerror("エラー", "数字じゃないよ")
                     break
 
-    #ヒットとブローを判定する①②
     if input_ok == True:
-        #①ヒット
         hit = 0
 
         for i in range(4):
             if a[i] == int(b[i]):
                 hit = hit+1
-        #②ブロー
         blow = 0
         for j in range(4):
             for i in range(4):
@@ -40,7 +37,6 @@ def ButtonClick():
 
         #ヒットが4なら終了
         if hit==4:
-            #メッセージをだしてウィンドウを閉じる
             tkmsg.showinfo("アタリ", "アタリです！")
             root.destroy()
         else:
@@ -48,30 +44,27 @@ def ButtonClick():
             rireki_01.insert(tk.END, b + " / H:" + str(hit) + ", B:" + str(blow) + "\n")
 
 
-#4桁のランダムな数字をつくる
 a = [random.randint(0,9),
      random.randint(0,9),
      random.randint(0,9),
      random.randint(0,9)]
 
-#ウィンドウを作る
 root = tk.Tk()
 root.geometry("600x400")
 root.title("数当てゲーム")
 
-#履歴のテキストボックスを作る
+#履歴
 rireki_01 = tk.Text(root, font=("Helvetica",14))
 rireki_01.place(x=400, y=0, width=200, height=400)
 
-#ラベルを作る
 label_01 = tk.Label(root, text="4桁の数字をいれてね", font=("Helvetica",14))
 label_01.place(x=20, y=20)
 
-#入力欄を作る
+#入力欄
 entry_01 = tk.Entry(width = 6, font=("Helvetica",28))
 entry_01.place(x=20, y=45)
 
-#ボタンを作る
+#ボタン
 button_01 = tk.Button(root, text="確定", font=("Helvetica",20), command=ButtonClick)
 button_01.place(x=170, y=54)
 
